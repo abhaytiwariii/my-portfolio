@@ -1,12 +1,13 @@
 @import "tailwindcss";
 
 :root {
+  color-scheme: light;
   /*My color pelette*/
   --light-gray: #f7f7f7; /*Background*/
   --soft-silver: #eeeeee; /* Borders/Cards */
   --dark-slate: #393e46; /* Primary Text/Buttons */
   --dusty-blue: #929aab; /* Secondary Text */
-
+  --dark-gray: #282828;
   --border-color: #eeeeee;
 
   /* Mapping to Next.js defaults */
@@ -24,8 +25,9 @@
   --color-dusty: var(--dusty-blue);
   --color-silver: var(--soft-silver);
 
+  --color-gray: var(--dark-gray);
   --color-border: var(--border-color);
-  
+
   /* This tells Tailwind: "font-sans" now means "Roboto", it tells tailwind that make roboto as default font */
   --font-sans: var(--font-roboto);
 }
