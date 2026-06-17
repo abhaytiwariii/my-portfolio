@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Roboto, Archivo_Black } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
 const roboto = Roboto({
   weight: ["400", "500", "700", "900"],
   variable: "--font-roboto",
+  subsets: ["latin"],
+});
+
+const archivo = Archivo_Black({
+  weight: ["400"],
+  variable: "--font-archivo-black",
   subsets: ["latin"],
 });
 
@@ -70,7 +76,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${roboto.variable} h-full antialiased`}>
+    <html
+      lang="en"
+      className={`${roboto.variable} ${archivo.variable} h-full antialiased`}
+    >
       <body className="min-h-full flex flex-col">
         <Navbar />
         {children}
