@@ -9,13 +9,18 @@ import { useState } from "react";
 
 export default function HeroSection() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [mousePosPx, setMousePosPx] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
+
+  // Easily customize the cursor color here (e.g., "black", "white", or any CSS color code)
+  const cursorColor = "#2d3748";
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = ((e.clientX - rect.left) / rect.width) * 100;
     const y = ((e.clientY - rect.top) / rect.height) * 100;
     setMousePos({ x, y });
+    setMousePosPx({ x: e.clientX - rect.left, y: e.clientY - rect.top });
   };
 
   return (
@@ -44,7 +49,7 @@ export default function HeroSection() {
 
       {/* DESKTOP/TABLET PORTRAIT (INTERACTIVE LAYERS) */}
       <div
-        className="hidden md:block md:absolute z-10 md:bottom-0 md:max-w-150 md:w-[80%] w-full lg:max-w-175 lg:w-170 cursor-none"
+        className="hidden md:block md:absolute z-10 md:bottom-0 md:max-w-150 md:w-[80%] w-full lg:max-w-175 lg:w-170 "
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -74,6 +79,42 @@ export default function HeroSection() {
               : "radial-gradient(circle 0px at 0% 0%, black, transparent)",
           }}
         />
+
+        {/* Custom Designed Cursor */}
+        {isHovered && (
+          <div
+            className="pointer-events-none absolute z-50 -translate-x-1/2 -translate-y-1/2 hidden md:flex items-center justify-center transition-transform duration-70 ease-out"
+            style={{
+              left: `${mousePosPx.x}px`,
+              top: `${mousePosPx.y}px`,
+            }}
+          >
+            <div className="relative flex items-center justify-center">
+              {/* Outer ring pulsing */}
+              <div
+                className="w-10 h-10 rounded-full border-2 opacity-80 animate-ping absolute"
+                style={{
+                  animationDuration: "2s",
+                  borderColor: cursorColor,
+                }}
+              />
+              {/* Outer ring static */}
+              <div
+                className="w-8 h-8 rounded-full border opacity-60"
+                style={{
+                  borderColor: cursorColor,
+                }}
+              />
+              {/* Inner core dot */}
+              <div
+                className="w-2 h-2 rounded-full absolute"
+                style={{
+                  backgroundColor: cursorColor,
+                }}
+              />
+            </div>
+          </div>
+        )}
       </div>
 
       {/* BACKGROUND GRAPHIC FOR MOBILE */}
