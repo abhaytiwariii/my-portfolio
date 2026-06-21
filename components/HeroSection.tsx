@@ -1,11 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import { MoveUpRight } from "lucide-react";
 import { SiGithub, SiInstagram, SiX } from "react-icons/si";
 import { FaLinkedinIn } from "react-icons/fa";
 import Image from "next/image";
 import { useState } from "react";
+import Button from "./ui/Button";
 
 export default function HeroSection() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -131,55 +131,57 @@ export default function HeroSection() {
             scalable applications using Next.js and FastAPI.
           </div>
           <div>
-            <button className="border border-gray-300 rounded-2xl w-full bg-black text-white md:rounded-full md:w-fit hover:bg-white hover:text-black md:border-2 md:border-black hover:border-border box-border hover:transition-all duration-300 shadow-sm md:shadow-none">
-              <Link
-                href="#contact"
-                className="flex items-center justify-center gap-2 px-6 py-4 md:px-4 md:py-2.5 lg:px-8 lg:py-4 tracking-tight font-medium text-base md:text-xs lg:text-sm xl:text-lg"
-              >
-                {/* <Users size={18} className="md:hidden text-gray-700" /> */}
-                <span>Let&apos;s collaborate</span>
-                <MoveUpRight
-                  size={15}
-                  className="text-gray-500 md:text-inherit"
-                />
-              </Link>
-            </button>
+            <Button href="#contact">
+              <span>Let&apos;s collaborate</span>
+              <MoveUpRight
+                size={15}
+                className="text-gray-500 md:text-inherit"
+              />
+            </Button>
           </div>
         </div>
         {/* SOCIAL LINKS */}
         <div className="grid grid-cols-2 xs:grid-cols-4 md:flex md:flex-col gap-2 md:gap-3 lg:gap-4 w-full md:w-auto pointer-events-auto">
-          <Link href="https://github.com/abhaytiwariii/" target="_blank">
-            <div className="border border-border bg-white px-2 py-4 md:px-4 md:py-3 lg:px-6 lg:py-5 rounded-2xl md:rounded-3xl flex flex-col md:flex-row gap-2 md:gap-3 justify-center items-center text-xs md:text-sm lg:text-lg hover:border-black/20 transition-all duration-300 cursor-pointer min-h-22.5 md:min-h-0 shadow-sm">
-              <SiGithub className="text-xl md:text-lg lg:text-2xl" />
-              <span className="text-[11px] md:text-xs lg:text-sm xl:text-lg font-medium">
-                GitHub
-              </span>
-            </div>
-          </Link>
-          <Link href="https://linkedin.com/in/abhaytiwariii/" target="_blank">
-            <div className="border border-border bg-white px-2 py-4 md:px-4 md:py-3 lg:px-6 lg:py-5 rounded-2xl md:rounded-3xl flex flex-col md:flex-row gap-2 md:gap-3 justify-center items-center text-xs md:text-sm lg:text-lg hover:border-black/20 transition-all duration-300 cursor-pointer min-h-22.5 md:min-h-0 shadow-sm">
-              <FaLinkedinIn className="text-xl md:text-lg lg:text-2xl" />
-              <span className="text-[11px] md:text-xs lg:text-sm xl:text-lg font-medium">
-                LinkedIn
-              </span>
-            </div>
-          </Link>
-          <Link href="https://instagram.com/_abhaytiwariii/" target="_blank">
-            <div className="border border-border bg-white px-2 py-4 md:px-4 md:py-3 lg:px-6 lg:py-5 rounded-2xl md:rounded-3xl flex flex-col md:flex-row gap-2 md:gap-3 justify-center items-center text-xs md:text-sm lg:text-lg hover:border-black/20 transition-all duration-300 cursor-pointer min-h-22.5 md:min-h-0 shadow-sm">
-              <SiInstagram className="text-xl md:text-lg lg:text-2xl" />
-              <span className="text-[11px] md:text-xs lg:text-sm xl:text-lg font-medium">
-                Instagram
-              </span>
-            </div>
-          </Link>
-          <Link href="https://x.com/_abhaytiwariii/" target="_blank">
-            <div className="border border-border bg-white px-2 py-4 md:px-4 md:py-3 lg:px-6 lg:py-5 rounded-2xl md:rounded-3xl flex flex-col md:flex-row gap-2 md:gap-3 justify-center items-center text-xs md:text-sm lg:text-lg hover:border-black/20 transition-all duration-300 cursor-pointer min-h-22.5 md:min-h-0 shadow-sm">
-              <SiX className="text-xl md:text-lg lg:text-2xl" />
-              <span className="text-[11px] md:text-xs lg:text-sm xl:text-lg font-medium">
-                Twitter / X
-              </span>
-            </div>
-          </Link>
+          <Button
+            href="https://github.com/abhaytiwariii/"
+            target="_blank"
+            variant="outline"
+          >
+            <SiGithub className="text-xl md:text-lg lg:text-2xl" />
+            <span className="text-[11px] md:text-xs lg:text-sm xl:text-lg font-medium">
+              GitHub
+            </span>
+          </Button>
+          <Button
+            href="https://linkedin.com/in/abhaytiwariii/"
+            target="_blank"
+            variant="outline"
+          >
+            <FaLinkedinIn className="text-xl md:text-lg lg:text-2xl" />
+            <span className="text-[11px] md:text-xs lg:text-sm xl:text-lg font-medium">
+              LinkedIn
+            </span>
+          </Button>
+          <Button
+            href="https://instagram.com/_abhaytiwariii/"
+            target="_blank"
+            variant="outline"
+          >
+            <SiInstagram className="text-xl md:text-lg lg:text-2xl" />
+            <span className="text-[11px] md:text-xs lg:text-sm xl:text-lg font-medium">
+              Instagram
+            </span>
+          </Button>
+          <Button
+            href="https://x.com/_abhaytiwariii/"
+            target="_blank"
+            variant="outline"
+          >
+            <SiX className="text-xl md:text-lg lg:text-2xl" />
+            <span className="text-[11px] md:text-xs lg:text-sm xl:text-lg font-medium">
+              Twitter / X
+            </span>
+          </Button>
         </div>
       </div>
     </section>
