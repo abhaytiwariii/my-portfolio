@@ -8,7 +8,7 @@
   --dark-slate: #393e46; /* Primary Text/Buttons */
   --dusty-blue: #929aab; /* Secondary Text */
   --dark-gray: #282828;
-  --border-color: #eeeeee;
+  --border-color: #dfdfdf;
 
   /* Mapping to Next.js defaults */
   --background: var(--light-gray);
