@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { cn } from "../lib/utils";
 
 interface BaseProps {
   variant?: "filled" | "outline" | "ghost";
@@ -34,10 +35,11 @@ export default function Button(props: ButtonProps) {
   };
 
   const { variant = "filled", className = "", children } = props;
-  const combinedStyles = `${baseStyles} ${variants[variant]} ${className}`;
+
+  const combinedStyles = cn(baseStyles, variants[variant], className);
 
   if (props.href !== undefined) {
-    const { href, target, rel, ...rest } = props;
+    const { href, target, rel, className, children, variant, ...rest } = props;
     return (
       <Link
         href={href}
@@ -50,7 +52,7 @@ export default function Button(props: ButtonProps) {
       </Link>
     );
   } else {
-    const { onClick, disabled, ...rest } = props;
+    const { onClick, disabled, children, variant, className, ...rest } = props;
     return (
       <button
         className={combinedStyles}
