@@ -47,7 +47,7 @@ const NAV_ITEMS: NavItemType[] = [
     delayClass: "delay-150",
   },
   {
-    href: "#contact",
+    href: "https://linkedin.com/in/abhaytiwariii/",
     label: "Contact",
     icon: <Mail size={18} />,
     delayClass: "delay-200",
@@ -177,7 +177,7 @@ export default function Navbar() {
           {/* DESKTOP/MOBILE CTAs */}
           <button className="bg-black text-white rounded-4xl cursor-pointer hover:bg-zinc-800 transition-colors duration-200">
             <Link
-              href="#contact"
+              href="https://linkedin.com/in/abhaytiwariii/"
               className="flex flex-row flex-nowrap gap-2 items-center px-5 xs:px-8 py-2 tracking-tight font-medium text-base"
             >
               Let&apos;s Talk <MoveUpRight size={15} />
