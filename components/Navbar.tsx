@@ -35,7 +35,7 @@ const NAV_ITEMS: NavItemType[] = [
   {
     href: "#experience",
     label: "Experience",
-    description: "[6m+]",
+    description: "[10m+]",
     icon: <UserRound size={18} />,
     delayClass: "delay-100",
   },

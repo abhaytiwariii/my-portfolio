@@ -127,11 +127,11 @@ export default function HeroSection() {
             Full Stack Developer
           </div>
           <div className="text-gray-600 text-base md:text-xs lg:text-sm xl:text-lg leading-7 md:leading-5 lg:leading-6 xl:leading-8 max-w-lg">
-            Full-Stack Web Developer with 6+ months of experience building
+            Full-Stack Web Developer with 10+ months of experience building
             scalable applications using Next.js and FastAPI.
           </div>
           <div>
-            <Button href="#contact">
+            <Button href="https://linkedin.com/in/abhaytiwariii/">
               <span>Let&apos;s collaborate</span>
               <MoveUpRight
                 size={15}
