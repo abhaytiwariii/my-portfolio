@@ -9,6 +9,7 @@
   --dusty-blue: #929aab; /* Secondary Text */
   --dark-gray: #282828;
   --border-color: #dfdfdf;
+  --white: #ffffff;
 
   /* Mapping to Next.js defaults */
   --background: var(--light-gray);
@@ -23,6 +24,7 @@
 
   --color-secondary: var(--dusty-blue);
   --color-accent: var(--soft-silver);
+  --color-surface: var(--white);
 
   --color-dusty: var(--dusty-blue);
   --color-silver: var(--soft-silver);

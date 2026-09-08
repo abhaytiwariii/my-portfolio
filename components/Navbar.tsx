@@ -74,7 +74,7 @@ function NavItem({
           : "opacity-100 translate-x-0" // Always visible on Desktop
       }`}
     >
-      <div className="flex items-center gap-3 sm:gap-6 md:gap-0">
+      <div className="flex items-center gap-3 sm:gap-6 lg:gap-0">
         {icon && isMobileView && isDropdownOpen && (
           <div className="rounded-md border border-border p-2 bg-silver">
             {icon}
@@ -124,12 +124,12 @@ export default function Navbar() {
   }, [isDropdownOpen]);
 
   return (
-    <header className="fixed right-0 left-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
-      <nav className="flex justify-center items-center h-15 bg-background">
-        <div className="flex flex-row flex-1 items-center justify-between max-w-7xl h-full font-sans px-5 sm:px-10 md:px-5">
+    <header className="relative z-50 bg-surface backdrop-blur-md pt-4">
+      <nav className="flex justify-center items-center h-15 bg-surface ">
+        <div className="flex flex-row flex-1 items-center justify-between max-w-7xl h-full font-sans px-5 sm:px-10 lg:px-5">
           {/* LEFT CONTENT: TOGGLE & PILL */}
           <div className="flex justify-between flex-1 xs:flex-initial items-center gap-5 sm:gap-10">
-            <div ref={menuRef} className="md:hidden relative z-50">
+            <div ref={menuRef} className="lg:hidden z-50">
               <div
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 className="cursor-pointer"
@@ -139,7 +139,7 @@ export default function Navbar() {
 
               {/* SLIDE DOWN OVERLAY DROPDOWN */}
               <div
-                className={`md:hidden fixed top-15 left-0 w-full border border-border bg-background shadow-lg transition-all duration-300 ease-in-out origin-top ${
+                className={`lg:hidden absolute top-full left-0 w-full border border-border bg-surface shadow-lg transition-all duration-300 ease-in-out origin-top ${
                   isDropdownOpen
                     ? "opacity-100 scale-y-100 pointer-events-auto"
                     : "opacity-0 scale-y-95 pointer-events-none"
@@ -168,7 +168,7 @@ export default function Navbar() {
           </div>
 
           {/* DESKTOP LINKS */}
-          <div className="hidden md:flex md:flex-1 md:h-full md:items-center md:justify-evenly md:gap-3 lg:gap-5 md:flex-nowrap px-2">
+          <div className="hidden lg:flex lg:flex-1 lg:h-full lg:items-center lg:justify-evenly md:gap-3 lg:gap-5 md:flex-nowrap px-2">
             {NAV_ITEMS.map((item) => (
               <NavItem key={item.href} {...item} />
             ))}

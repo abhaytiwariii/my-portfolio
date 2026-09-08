@@ -24,9 +24,9 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative max-h-225 md:max-h-175 lg:max-h-200 overflow-hidden bg-background pt-5 md:h-screen md:flex md:items-end md:justify-center">
+    <section className="relative max-h-225 md:max-h-175 lg:max-h-185 overflow-hidden bg-surface md:h-screen md:flex md:items-end md:justify-center">
       {/* BACKGROUND HEADER */}
-      <div className="absolute z-0 top-4 md:top-10 lg:top-14 w-full flex justify-center">
+      <div className="absolute z-0 top-4 lg:top-10 w-full flex justify-center">
         <h1 className="text-[20vw] xs:text-[22vw] sm:text-[18vw] leading-none md:text-[11vw] lg:text-[12vw] font-bold xl:text-[150px] text-transparent [-webkit-text-stroke:1px_black] md:[-webkit-text-stroke:1.5px_black] lg:[-webkit-text-stroke:2px_black] flex flex-col items-center md:flex-row md:gap-6 lg:gap-16 xl:gap-20 font-archivo tracking-tighter">
           <span>ABHAY</span>
           <span className="text-gray-600 [-webkit-text-stroke-width:0]">
@@ -121,7 +121,7 @@ export default function HeroSection() {
       <div className="absolute top-[45%] -right-20 w-60 h-60 rounded-full bg-gray-100 blur-3xl md:hidden" />
 
       {/* FOREGROUND CONTENT SECTION */}
-      <div className="relative z-20 w-full max-w-7xl flex flex-col md:flex-row gap-8 md:gap-4 lg:gap-10 justify-between items-center md:items-end px-6 md:px-8 lg:px-10 pb-10 md:pb-32 lg:pb-20 mt-4 md:mt-0 pointer-events-none">
+      <div className="relative z-20 mx-auto w-full max-w-7xl flex flex-col md:flex-row gap-8 md:gap-4 lg:gap-10 justify-between items-center md:items-end px-6 md:px-8 lg:px-10 pb-10 md:pb-32 lg:pb-20 mt-4 md:mt-0 pointer-events-none">
         <div className="flex flex-col gap-4 lg:gap-5 w-full max-w-md md:max-w-70 lg:max-w-90 xl:max-w-md text-center md:text-left pointer-events-auto">
           <div className="md:text-2xl lg:text-3xl xl:text-4xl sm:text-3xl text-2xl font-semibold text-black">
             Full Stack Developer
