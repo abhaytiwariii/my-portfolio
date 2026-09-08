@@ -66,12 +66,12 @@ function NavItem({
   return (
     <Link
       href={href}
-      className={`flex flex-nowrap items-center justify-between sm:justify-start md:justify-center w-full md:w-auto gap-2 cursor-pointer tracking-tight font-medium transform transition-all duration-300 ${
+      className={`group relative flex flex-nowrap items-center justify-between sm:justify-start md:justify-center w-full md:w-auto gap-2 cursor-pointer tracking-tight font-medium transform transition-all duration-300 ${
         isMobileView
           ? isDropdownOpen
             ? `translate-x-0 opacity-100 ${delayClass}`
             : "-translate-x-4 opacity-0 pointer-events-none"
-          : "opacity-100 translate-x-0" // Always visible on Desktop
+          : "opacity-100 translate-x-0"
       }`}
     >
       <div className="flex items-center gap-3 sm:gap-6 lg:gap-0">
@@ -82,11 +82,13 @@ function NavItem({
         )}
         {label}
       </div>
-      <div>
-        {description && (
-          <span className="text-secondary text-xs md:ml-1">{description}</span>
-        )}
-      </div>
+
+      {description && (
+        <span className="text-secondary text-xs md:ml-1">{description}</span>
+      )}
+
+      {/* Animated underline */}
+      <span className="absolute left-0 -bottom-1 h-px w-0 bg-current transition-all duration-300 ease-out group-hover:w-full" />
     </Link>
   );
 }
@@ -130,15 +132,20 @@ export default function Navbar() {
           {/* LEFT CONTENT: TOGGLE & PILL */}
           <div className="flex justify-between flex-1 xs:flex-initial items-center gap-5 sm:gap-10">
             <div ref={menuRef} className="lg:hidden z-50">
-              <div
+              <button
+                type="button"
+                aria-label="Toggle navigation menu"
+                aria-expanded={isDropdownOpen}
+                aria-controls="mobile-navigation"
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 className="cursor-pointer"
               >
                 {isDropdownOpen ? <X size={28} /> : <Menu size={28} />}
-              </div>
+              </button>
 
               {/* SLIDE DOWN OVERLAY DROPDOWN */}
               <div
+                id="mobile-navigation"
                 className={`lg:hidden absolute top-full left-0 w-full border border-border bg-surface shadow-lg transition-all duration-300 ease-in-out origin-top ${
                   isDropdownOpen
                     ? "opacity-100 scale-y-100 pointer-events-auto"
@@ -175,14 +182,12 @@ export default function Navbar() {
           </div>
 
           {/* DESKTOP/MOBILE CTAs */}
-          <button className="bg-black text-white rounded-4xl cursor-pointer hover:bg-zinc-800 transition-colors duration-200">
-            <Link
-              href="https://linkedin.com/in/abhaytiwariii/"
-              className="flex flex-row flex-nowrap gap-2 items-center px-5 xs:px-8 py-2 tracking-tight font-medium text-base"
-            >
-              Let&apos;s Talk <MoveUpRight size={15} />
-            </Link>
-          </button>
+          <Link
+            href="https://linkedin.com/in/abhaytiwariii/"
+            className="bg-black text-white rounded-4xl cursor-pointer hover:bg-zinc-800 transition-colors duration-200 flex flex-row flex-nowrap gap-2 items-center px-5 xs:px-8 py-2 tracking-tight font-medium text-base"
+          >
+            Let&apos;s Talk <MoveUpRight size={15} />
+          </Link>
         </div>
       </nav>
     </header>
