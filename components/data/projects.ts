@@ -1,6 +1,21 @@
+import rocketsalesImage from "@/public/rocketsales.png";
+import labelliftImage from "@/public/Labellift.png";
+import athleticaImage from "@/public/athletica.png";
+import kordeImage from "@/public/korde.png";
+import nccImage from "@/public/ncc-cadet.png";
+import parentsEyeImage from "@/public/parentsEye.png";
+import repairshopImage from "@/public/repairshop-dashbaord.png";
+import stockMarketAnalyzerImage from "@/public/stock-market-analyzer.png";
+import taskManagementImage from "@/public/task-management-system.png";
+import welcomeImage from "@/public/welcome-itzfizz.png";
+import therapistMayaImage from "@/public/therapist-maya.png";
+import { StaticImageData } from "next/image";
+
+type ProjectImage = StaticImageData | string;
+
 export type Project = {
   id: number;
-  img: string;
+  img: ProjectImage;
   title: string;
   description?: string;
   link?: string;
@@ -19,7 +34,7 @@ export type Project = {
 const projects: Project[] = [
   {
     id: 1,
-    img: "/project3.png",
+    img: rocketsalesImage,
     title: "RocketSales — Sales & Inventory Platform",
     description:
       "A multi-tenant business management platform for handling sales, inventory, attendance, financial tracking, POS operations, and branch management.",
@@ -41,7 +56,7 @@ const projects: Project[] = [
 
   {
     id: 2,
-    img: "/project8.png",
+    img: labelliftImage,
     title: "LabelLift — Music Distribution Platform",
     description:
       "A production music distribution platform for artists and labels, providing workflows for artist management, label management, royalties, and music distribution.",
@@ -60,7 +75,7 @@ const projects: Project[] = [
 
   {
     id: 3,
-    img: "/project1.png",
+    img: taskManagementImage,
     title: "Task Management System",
     description:
       "A full-stack Kanban task management platform for organizing work through boards, tasks, status transitions, and authentication.",
@@ -82,7 +97,7 @@ const projects: Project[] = [
 
   {
     id: 4,
-    img: "/project4.png",
+    img: repairshopImage,
     title: "Repair Shop Management",
     description:
       "A business management system for handling repair jobs, customers, payments, shop operations, and financial tracking.",
@@ -102,7 +117,7 @@ const projects: Project[] = [
 
   {
     id: 5,
-    img: "/project2.png",
+    img: stockMarketAnalyzerImage,
     title: "Stock Market Analyzer",
     description:
       "An interactive stock analysis dashboard for exploring historical market data, filtering different timeframes, and visualizing market trends through charts.",
@@ -123,7 +138,7 @@ const projects: Project[] = [
 
   {
     id: 6,
-    img: "/project9.png",
+    img: parentsEyeImage,
     title: "Parents Eye",
     description:
       "A multi-page business website designed to provide an online presence for the organization, with responsive layouts and structured pages for its services and information.",
@@ -142,7 +157,7 @@ const projects: Project[] = [
 
   {
     id: 7,
-    img: "/project10.png",
+    img: kordeImage,
     title: "Kord Enviro",
     description:
       "A multi-page business website built to present the company's services, information, and online presence through a responsive WordPress website.",
@@ -161,7 +176,7 @@ const projects: Project[] = [
 
   {
     id: 8,
-    img: "/project11.png",
+    img: athleticaImage,
     title: "Athletica — Shopify Website",
     description:
       "A Shopify e-commerce website for an athletic and sports-focused business, with custom page sections and a responsive storefront experience.",
@@ -180,7 +195,7 @@ const projects: Project[] = [
 
   {
     id: 9,
-    img: "/project6.png",
+    img: nccImage,
     title: "NCC Cadet Hub",
     description:
       "A role-based digital headquarters for NCC units that replaces physical registers with a centralized system for managing cadets, parade attendance, nominal rolls, and academic mock tests.",
@@ -194,7 +209,7 @@ const projects: Project[] = [
 
   {
     id: 10,
-    img: "/project5.png",
+    img: therapistMayaImage,
     title: "Therapist Maya",
     description:
       "A modern responsive website designed to provide a professional online presence for a therapist, with a clean interface and accessible user experience.",
@@ -208,7 +223,7 @@ const projects: Project[] = [
 
   {
     id: 11,
-    img: "/project7.png",
+    img: welcomeImage,
     title: "Itzfizz Scroll-Driven Hero Section",
     description:
       "A scroll-driven hero section designed to create an engaging visual experience through animated transitions and interactive scrolling.",
