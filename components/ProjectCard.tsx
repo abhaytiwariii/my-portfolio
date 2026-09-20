@@ -1,10 +1,35 @@
-import projects, { Project } from "./data/projects";
+import { Project } from "./data/projects";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
 
-export function ProjectCard({ project }: { project: Project }) {
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 32 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      delay: i * 0.1,
+      ease: [0.25, 0.1, 0.25, 1] as const,
+    },
+  }),
+};
+
+export function ProjectCard({
+  project,
+  index,
+}: {
+  project: Project;
+  index: number;
+}) {
   return (
-    <article
+    <motion.article
+      variants={cardVariants}
+      initial="hidden"
+      animate="visible"
+      custom={index}
       className="
         group relative overflow-hidden rounded-lg
         border border-border bg-surface
@@ -42,35 +67,26 @@ export function ProjectCard({ project }: { project: Project }) {
               bg-surface text-foreground
               text-xl font-bold
               shadow-md
-              opacity-0
-              scale-90
+              opacity-0 scale-90
               transition-all duration-300
-              group-hover:scale-100
-              group-hover:opacity-100
+              group-hover:scale-100 group-hover:opacity-100
               hover:bg-accent hover:shadow-lg
-              focus-visible:scale-100
-              focus-visible:opacity-100
-              focus-visible:outline-none
-              focus-visible:ring-2
-              focus-visible:ring-gray
+              focus-visible:scale-100 focus-visible:opacity-100
+              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray
             "
           >
             ↗
           </Link>
         )}
 
-        {/* Project Type */}
+        {/* Project Type Badge */}
         {project.type && (
           <span
             className="
               absolute left-3 top-3
-              rounded-full
-              border border-border
-              bg-surface/95
-              px-3 py-1
-              text-xs text-foreground
-              shadow-sm
-              backdrop-blur-sm
+              rounded-full border border-border
+              bg-surface/95 px-3 py-1
+              text-xs text-foreground shadow-sm backdrop-blur-sm
             "
           >
             {project.type}
@@ -84,7 +100,6 @@ export function ProjectCard({ project }: { project: Project }) {
           <span className="text-xs uppercase tracking-wider text-dusty">
             Project
           </span>
-
           <span className="text-xs text-dusty">
             #{String(project.id).padStart(2, "0")}
           </span>
@@ -98,17 +113,15 @@ export function ProjectCard({ project }: { project: Project }) {
           {project.description}
         </p>
 
-        {/* Technologies */}
-        {project.tags && project.tags?.length > 0 && (
+        {/* Tags */}
+        {project.tags && project.tags.length > 0 && (
           <div className="mt-5 flex flex-wrap gap-2">
             {project.tags.map((tag) => (
               <span
                 key={tag}
                 className="
-                  rounded-full
-                  border border-border
-                  bg-accent/40
-                  px-3 py-1.5
+                  rounded-full border border-border
+                  bg-accent/40 px-3 py-1.5
                   text-xs text-foreground
                   transition-colors duration-200
                   group-hover:border-dusty
@@ -120,15 +133,15 @@ export function ProjectCard({ project }: { project: Project }) {
           </div>
         )}
       </div>
-    </article>
+    </motion.article>
   );
 }
 
 export function ProjectList({ projects }: { projects: Project[] }) {
   return (
     <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
-      {projects.map((project) => (
-        <ProjectCard key={project.id} project={project} />
+      {projects.map((project, i) => (
+        <ProjectCard key={project.id} project={project} index={i} />
       ))}
     </div>
   );
