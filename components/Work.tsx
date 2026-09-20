@@ -24,6 +24,7 @@ const fadeUp: Variants = {
 
 export default function Work() {
   const [filter, setFilter] = useState<Project["type"] | "all">("all");
+  const [loadMore, setLoadMore] = useState(false);
 
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-80px" });
@@ -32,6 +33,10 @@ export default function Work() {
     filter === "all"
       ? projects
       : projects.filter((project) => project.type === filter);
+
+  const visibleProjects = loadMore
+    ? filteredProjects
+    : filteredProjects.slice(0, 4);
 
   const filters = [
     { label: "All", value: "all" },
@@ -90,9 +95,10 @@ export default function Work() {
                 >
                   <Button
                     variant={filter === item.value ? "outline" : "ghost"}
-                    onClick={() =>
-                      setFilter(item.value as Project["type"] | "all")
-                    }
+                    onClick={() => {
+                      setFilter(item.value as Project["type"] | "all");
+                      setLoadMore(false);
+                    }}
                     className="px-3! py-1! min-h-10 rounded-full! w-auto!"
                   >
                     {item.label}
@@ -107,9 +113,10 @@ export default function Work() {
                 <motion.div key={item.value} variants={fadeUp} custom={i + 2}>
                   <Button
                     variant={filter === item.value ? "default" : "ghost"}
-                    onClick={() =>
-                      setFilter(item.value as Project["type"] | "all")
-                    }
+                    onClick={() => {
+                      setFilter(item.value as Project["type"] | "all");
+                      setLoadMore(false);
+                    }}
                     className="relative group transform transition-all duration-300 hover:scale-105"
                   >
                     {item.label}
@@ -136,7 +143,6 @@ export default function Work() {
               </Link>
             </motion.div>
           </div>
-
           {/* Projects grid */}
           <div className="mt-8">
             <AnimatePresence mode="wait">
@@ -147,10 +153,26 @@ export default function Work() {
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.25 }}
               >
-                <ProjectList projects={filteredProjects} />
+                <ProjectList projects={visibleProjects} />
               </motion.div>
             </AnimatePresence>
           </div>
+          {/* Load More Button */}
+          <AnimatePresence>
+            {filteredProjects.length > 4 && !loadMore && (
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.25 }}
+                className="flex items-center justify-center my-10"
+              >
+                <Button variant="filled" onClick={() => setLoadMore(true)}>
+                  Load More
+                </Button>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
       </div>
     </section>
