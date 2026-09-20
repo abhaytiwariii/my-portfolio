@@ -14,6 +14,10 @@
   /* Mapping to Next.js defaults */
   --background: var(--light-gray);
   --foreground: var(--dark-slate);
+
+  --foreground-strong: #282828;
+  --foreground-muted: #929aab;
+  --surface-muted: #eeeeee;
 }
 
 @theme inline {
@@ -23,6 +27,7 @@
   --color-foreground: var(--foreground);
 
   --color-secondary: var(--dusty-blue);
+  --color-strong: var(--foreground-strong);
   --color-accent: var(--soft-silver);
   --color-surface: var(--white);
 

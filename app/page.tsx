@@ -7,10 +7,10 @@ import Footer from "@/components/Contact";
 
 export default function Home() {
   return (
-    <div className="bg-zinc-50 font-sans pt-15">
+    <div className="bg-zinc-50 font-sans">
       <HeroSection />
-      {/* <Work />
-      <Experience />
+      <Work />
+      {/* <Experience />
       <Skills />
       <Services />
       <Footer /> */}
