@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { ReactNode, useEffect, useState, useRef } from "react";
+import { motion } from "framer-motion";
 
 type NavItemType = {
   href: string;
@@ -33,14 +34,14 @@ const NAV_ITEMS: NavItemType[] = [
     delayClass: "delay-75",
   },
   {
-    href: "#experience",
+    href: "https://linkedin.com/in/abhaytiwariii/",
     label: "Experience",
     description: "[10m+]",
     icon: <UserRound size={18} />,
     delayClass: "delay-100",
   },
   {
-    href: "#skills",
+    href: "https://github.com/abhaytiwariii/",
     label: "Skills",
     description: "[10+]",
     icon: <CodeXml size={18} />,
@@ -126,7 +127,16 @@ export default function Navbar() {
   }, [isDropdownOpen]);
 
   return (
-    <header className="relative z-50 bg-surface backdrop-blur-md pt-4">
+    <motion.header
+      initial={{ y: -16, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{
+        duration: 0.5,
+        delay: 0,
+        ease: [0.25, 0.1, 0.25, 1],
+      }}
+      className="relative z-50 bg-surface backdrop-blur-md pt-4"
+    >
       <nav className="flex justify-center items-center h-15 bg-surface ">
         <div className="flex flex-row flex-1 items-center justify-between max-w-7xl h-full font-sans px-5 sm:px-10 lg:px-5">
           {/* LEFT CONTENT: TOGGLE & PILL */}
@@ -158,7 +168,7 @@ export default function Navbar() {
                 >
                   {NAV_ITEMS.map((item) => (
                     <NavItem
-                      key={item.href}
+                      key={item.label}
                       isDropdownOpen={isDropdownOpen}
                       isMobileView={true}
                       {...item}
@@ -177,7 +187,7 @@ export default function Navbar() {
           {/* DESKTOP LINKS */}
           <div className="hidden lg:flex lg:flex-1 lg:h-full lg:items-center lg:justify-evenly md:gap-3 lg:gap-5 md:flex-nowrap px-2">
             {NAV_ITEMS.map((item) => (
-              <NavItem key={item.href} {...item} />
+              <NavItem key={item.label} {...item} />
             ))}
           </div>
 
@@ -190,6 +200,6 @@ export default function Navbar() {
           </Link>
         </div>
       </nav>
-    </header>
+    </motion.header>
   );
 }

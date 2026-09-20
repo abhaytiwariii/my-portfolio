@@ -5,7 +5,56 @@ import { SiGithub, SiInstagram, SiX } from "react-icons/si";
 import { FaLinkedinIn } from "react-icons/fa";
 import Image from "next/image";
 import { useState } from "react";
+import { motion, type Variants } from "framer-motion";
 import Button from "./ui/Button";
+
+const CUBIC_EASE = [0.25, 0.1, 0.25, 1] as const;
+
+const SOCIAL_LINKS = [
+  {
+    name: "GitHub",
+    href: "https://github.com/abhaytiwariii/",
+    icon: SiGithub,
+  },
+  {
+    name: "LinkedIn",
+    href: "https://linkedin.com/in/abhaytiwariii/",
+    icon: FaLinkedinIn,
+  },
+  {
+    name: "Instagram",
+    href: "https://instagram.com/_abhaytiwariii/",
+    icon: SiInstagram,
+  },
+  {
+    name: "Twitter / X",
+    href: "https://x.com/_abhaytiwariii/",
+    icon: SiX,
+  },
+];
+
+const socialContainerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.07,
+      delayChildren: 0.6,
+    },
+  },
+};
+
+const socialItemVariants: Variants = {
+  hidden: { y: 12, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.4,
+      ease: CUBIC_EASE,
+    },
+  },
+};
 
 export default function HeroSection() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -25,18 +74,45 @@ export default function HeroSection() {
 
   return (
     <section className="relative max-h-225 md:max-h-175 lg:max-h-185 overflow-hidden bg-surface md:h-screen md:flex md:items-end md:justify-center">
-      {/* BACKGROUND HEADER */}
+      {/* BACKGROUND HEADER / NAME TEXT */}
       <div className="absolute z-0 top-4 lg:top-10 w-full flex justify-center">
-        <h1 className="text-[20vw] xs:text-[22vw] sm:text-[18vw] leading-none md:text-[11vw] lg:text-[12vw] font-bold xl:text-[150px] text-transparent [-webkit-text-stroke:1px_black] md:[-webkit-text-stroke:1.5px_black] lg:[-webkit-text-stroke:2px_black] flex flex-col items-center md:flex-row md:gap-6 lg:gap-16 xl:gap-20 font-archivo tracking-tighter">
+        <motion.h1
+          initial={{ opacity: 0.1, scale: 0.97 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 0.6,
+            delay: 0.1,
+            ease: CUBIC_EASE,
+          }}
+          className="text-[20vw] xs:text-[22vw] sm:text-[18vw] leading-none md:text-[11vw] lg:text-[12vw] font-bold xl:text-[150px] text-transparent [-webkit-text-stroke:1px_black] md:[-webkit-text-stroke:1.5px_black] lg:[-webkit-text-stroke:2px_black] flex flex-col items-center md:flex-row md:gap-6 lg:gap-16 xl:gap-20 font-archivo tracking-tighter select-none"
+        >
           <span>ABHAY</span>
-          <span className="text-gray-600 [-webkit-text-stroke-width:0]">
+          <motion.span
+            initial={{ color: "#6b7280" }}
+            animate={{ color: "#000000" }}
+            transition={{
+              duration: 0.6,
+              delay: 0.1,
+              ease: CUBIC_EASE,
+            }}
+            className="text-gray-600! [-webkit-text-stroke-width:0]"
+          >
             TIWARI
-          </span>
-        </h1>
+          </motion.span>
+        </motion.h1>
       </div>
 
       {/* MOBILE PORTRAIT (STATIC COLOR) */}
-      <div className="relative z-10 mt-[35%] sm:mt-[30%] md:hidden w-full max-w-82.5 sm:max-w-95 mx-auto px-4">
+      <motion.div
+        initial={{ y: 40, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          duration: 0.7,
+          delay: 0.35,
+          ease: CUBIC_EASE,
+        }}
+        className="relative z-10 mt-[35%] sm:mt-[30%] md:hidden w-full max-w-82.5 sm:max-w-95 mx-auto px-4"
+      >
         <Image
           width={457}
           height={750}
@@ -45,10 +121,17 @@ export default function HeroSection() {
           className="w-full h-auto object-contain"
           priority
         />
-      </div>
+      </motion.div>
 
       {/* DESKTOP/TABLET PORTRAIT (INTERACTIVE LAYERS) */}
-      <div
+      <motion.div
+        initial={{ y: 40, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          duration: 0.7,
+          delay: 0.35,
+          ease: CUBIC_EASE,
+        }}
         className="hidden md:block md:absolute z-10 md:bottom-0 md:max-w-150 md:w-[80%] w-full lg:max-w-175 lg:w-170 "
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setIsHovered(true)}
@@ -115,14 +198,24 @@ export default function HeroSection() {
             </div>
           </div>
         )}
-      </div>
+      </motion.div>
 
       {/* BACKGROUND GRAPHIC FOR MOBILE */}
       <div className="absolute top-[45%] -right-20 w-60 h-60 rounded-full bg-gray-100 blur-3xl md:hidden" />
 
       {/* FOREGROUND CONTENT SECTION */}
       <div className="relative z-20 mx-auto w-full max-w-7xl flex flex-col md:flex-row gap-8 md:gap-4 lg:gap-10 justify-between items-center md:items-end px-6 md:px-8 lg:px-10 pb-10 md:pb-32 lg:pb-20 mt-4 md:mt-0 pointer-events-none">
-        <div className="flex flex-col gap-4 lg:gap-5 w-full max-w-md md:max-w-70 lg:max-w-90 xl:max-w-md text-center md:text-left pointer-events-auto">
+        {/* BOTTOM-LEFT BLOCK */}
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{
+            duration: 0.5,
+            delay: 0.55,
+            ease: CUBIC_EASE,
+          }}
+          className="flex flex-col gap-4 lg:gap-5 w-full max-w-md md:max-w-70 lg:max-w-90 xl:max-w-md text-center md:text-left pointer-events-auto"
+        >
           <div className="md:text-2xl lg:text-3xl xl:text-4xl sm:text-3xl text-2xl font-semibold text-black">
             Full Stack Developer
           </div>
@@ -139,50 +232,26 @@ export default function HeroSection() {
               />
             </Button>
           </div>
-        </div>
-        {/* SOCIAL LINKS */}
-        <div className="grid grid-cols-2 xs:grid-cols-4 md:flex md:flex-col gap-2 md:gap-3 lg:gap-4 w-full md:w-auto pointer-events-auto">
-          <Button
-            href="https://github.com/abhaytiwariii/"
-            target="_blank"
-            variant="outline"
-          >
-            <SiGithub className="text-xl md:text-lg lg:text-2xl" />
-            <span className="text-[11px] md:text-xs lg:text-sm xl:text-lg font-medium">
-              GitHub
-            </span>
-          </Button>
-          <Button
-            href="https://linkedin.com/in/abhaytiwariii/"
-            target="_blank"
-            variant="outline"
-          >
-            <FaLinkedinIn className="text-xl md:text-lg lg:text-2xl" />
-            <span className="text-[11px] md:text-xs lg:text-sm xl:text-lg font-medium">
-              LinkedIn
-            </span>
-          </Button>
-          <Button
-            href="https://instagram.com/_abhaytiwariii/"
-            target="_blank"
-            variant="outline"
-          >
-            <SiInstagram className="text-xl md:text-lg lg:text-2xl" />
-            <span className="text-[11px] md:text-xs lg:text-sm xl:text-lg font-medium">
-              Instagram
-            </span>
-          </Button>
-          <Button
-            href="https://x.com/_abhaytiwariii/"
-            target="_blank"
-            variant="outline"
-          >
-            <SiX className="text-xl md:text-lg lg:text-2xl" />
-            <span className="text-[11px] md:text-xs lg:text-sm xl:text-lg font-medium">
-              Twitter / X
-            </span>
-          </Button>
-        </div>
+        </motion.div>
+
+        {/* SOCIAL LINKS (BOTTOM-RIGHT) */}
+        <motion.div
+          variants={socialContainerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid grid-cols-2 xs:grid-cols-4 md:flex md:flex-col gap-2 md:gap-3 lg:gap-4 w-full md:w-auto pointer-events-auto"
+        >
+          {SOCIAL_LINKS.map((link) => (
+            <motion.div key={link.name} variants={socialItemVariants}>
+              <Button href={link.href} target="_blank" variant="outline">
+                <link.icon className="text-xl md:text-lg lg:text-2xl" />
+                <span className="text-[11px] md:text-xs lg:text-sm xl:text-lg font-medium">
+                  {link.name}
+                </span>
+              </Button>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
