@@ -1,7 +1,22 @@
 import type { Metadata } from "next";
 import { Roboto, Archivo_Black } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Abhay Tiwari",
+  jobTitle: "Full Stack Developer",
+  url: "https://abhaytiwari.vercel.app",
+  sameAs: [
+    "https://github.com/abhaytiwariii",
+    "https://linkedin.com/in/abhaytiwariii",
+    "https://x.com/_abhaytiwariii",
+    "https://instagram.com/_abhaytiwariii",
+  ],
+};
 
 const roboto = Roboto({
   weight: ["400", "500", "700", "900"],
@@ -87,6 +102,16 @@ export default function RootLayout({
       lang="en"
       className={`${roboto.variable} ${archivo.variable} h-full antialiased`}
     >
+      <head>
+        <Script
+          id="person-jsonld"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col">
         <Navbar />
         {children}
