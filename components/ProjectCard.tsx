@@ -41,7 +41,11 @@ export function ProjectCard({
       <div className="relative overflow-hidden bg-accent">
         <Image
           src={project.img}
-          alt={project.title}
+          alt={
+            project.description
+              ? `${project.title} screenshot — ${project.description}`
+              : `${project.title} project preview screenshot`
+          }
           className="
             aspect-16/10 w-full
             object-cover object-top

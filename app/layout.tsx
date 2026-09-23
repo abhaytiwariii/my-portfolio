@@ -49,6 +49,10 @@ export const metadata: Metadata = {
 
   metadataBase: new URL("https://abhaytiwari.vercel.app"),
 
+  verification: {
+    google: "1zTpiuHTBkFcm3AQEf-KHJ9OB4jbTpvdPS7eAr3ckn4",
+  },
+
   openGraph: {
     title: "Abhay Tiwari | Full Stack Developer",
     description:
@@ -73,9 +77,7 @@ export const metadata: Metadata = {
       { url: "/favicon.ico" },
       { url: "/icon.png", sizes: "512x512", type: "image/png" },
     ],
-    apple: [
-      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
-    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
 
   twitter: {
