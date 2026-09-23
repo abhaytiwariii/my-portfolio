@@ -32,28 +32,35 @@ export const metadata: Metadata = {
   authors: [{ name: "Abhay Tiwari" }],
   creator: "Abhay Tiwari",
 
-  metadataBase: new URL("https://abhaytiwariii.vercel.app"),
+  metadataBase: new URL("https://abhaytiwari.vercel.app"),
 
   openGraph: {
     title: "Abhay Tiwari | Full Stack Developer",
     description:
       "Full Stack Developer building scalable web apps with Next.js, FastAPI, and PostgreSQL.",
-    url: "https://abhaytiwariii.vercel.app",
+    url: "https://abhaytiwari.vercel.app",
     siteName: "Abhay Tiwari Portfolio",
     type: "website",
     locale: "en_IN",
 
     images: [
       {
-        url: "/homepage.png",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
+        alt: "Abhay Tiwari - Full Stack Developer",
       },
     ],
   },
 
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
 
   twitter: {
@@ -61,7 +68,7 @@ export const metadata: Metadata = {
     title: "Abhay Tiwari | Full Stack Developer",
     description:
       "Full Stack Developer specializing in Next.js, FastAPI, and PostgreSQL.",
-    images: ["/homepage.png"],
+    images: ["/og-image.jpg"],
   },
 
   robots: {
