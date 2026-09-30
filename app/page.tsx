@@ -10,8 +10,8 @@ export default function Home() {
     <div className="bg-zinc-50 font-sans">
       <HeroSection />
       <Work />
-      {/* <Experience />
-      <Skills />
+      <Experience />
+      {/*<Skills />
       <Services />
       <Footer /> */}
     </div>

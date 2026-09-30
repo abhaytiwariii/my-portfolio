@@ -34,7 +34,7 @@ const NAV_ITEMS: NavItemType[] = [
     delayClass: "delay-75",
   },
   {
-    href: "https://linkedin.com/in/abhaytiwariii/",
+    href: "#experience",
     label: "Experience",
     description: "[10m+]",
     icon: <UserRound size={18} />,
