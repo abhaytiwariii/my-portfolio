@@ -105,10 +105,9 @@ export default function RootLayout({
       className={`${roboto.variable} ${archivo.variable} h-full antialiased`}
     >
       <head>
-        <Script
+        <script
           id="person-jsonld"
           type="application/ld+json"
-          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c"),
           }}

@@ -10,7 +10,7 @@ import { motion, AnimatePresence, useInView } from "framer-motion";
 import type { Variants } from "framer-motion";
 
 const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 20 },
   visible: (i: number = 0) => ({
     opacity: 1,
     y: 0,
@@ -22,8 +22,10 @@ const fadeUp: Variants = {
   }),
 };
 
+type FilterValue = Project["type"] | Project["company"] | "all";
+
 export default function Work() {
-  const [filter, setFilter] = useState<Project["type"] | "all">("all");
+  const [filter, setFilter] = useState<FilterValue>("all");
   const [loadMore, setLoadMore] = useState(false);
 
   const sectionRef = useRef(null);
@@ -32,18 +34,27 @@ export default function Work() {
   const filteredProjects =
     filter === "all"
       ? projects
-      : projects.filter((project) => project.type === filter);
+      : projects.filter(
+          (project) => project.type === filter || project.company === filter,
+        );
 
   const visibleProjects = loadMore
     ? filteredProjects
     : filteredProjects.slice(0, 4);
 
-  const filters = [
+  const filters: { label: string; value: FilterValue }[] = [
     { label: "All", value: "all" },
-    { label: "Professional Projects", value: "Professional" },
-    { label: "Personal Projects", value: "Personal" },
+    { label: "Professional", value: "Professional" },
+    { label: "Personal", value: "Personal" },
     { label: "In Progress", value: "In Progress" },
-  ] as const;
+    { label: "HB Gadget Technology", value: "hb-gadget" },
+    { label: "LabelLift", value: "Labellift" },
+  ];
+
+  const getFilterCount = (val: FilterValue) => {
+    if (val === "all") return projects.length;
+    return projects.filter((p) => p.type === val || p.company === val).length;
+  };
 
   return (
     <section
@@ -52,7 +63,7 @@ export default function Work() {
       className="w-full overflow-hidden bg-background py-16 md:py-24"
     >
       <div className="mx-auto w-full max-w-7xl px-6 md:px-8 lg:px-10">
-        {/* Heading */}
+        {/* Header / Watermark */}
         <motion.div
           className="relative h-32 md:h-40 lg:h-48 mb-10 md:mb-16"
           initial="hidden"
@@ -62,7 +73,7 @@ export default function Work() {
           <motion.span
             variants={fadeUp}
             custom={0}
-            className="absolute inset-0 flex items-start justify-center text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold text-dusty/10 tracking-widest select-none"
+            className="absolute inset-0 flex items-center justify-center text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold text-dusty/10 font-archivo tracking-widest select-none pointer-events-none"
           >
             PORTFOLIO
           </motion.span>
@@ -71,92 +82,126 @@ export default function Work() {
           <motion.h2
             variants={fadeUp}
             custom={1}
-            className="absolute bottom-10 left-0 right-0 z-10 text-center text-4xl font-medium tracking-wide md:text-5xl lg:text-6xl text-black"
+            className="absolute bottom-3 left-0 right-0 z-10 text-center text-4xl font-medium tracking-wide md:text-5xl lg:text-6xl text-black"
           >
             /WORK
           </motion.h2>
         </motion.div>
 
-        {/* Filters + CTA */}
+        {/* Filter Navigation Bar */}
         <motion.div
-          className="w-full"
+          className="w-full space-y-8"
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            {/* Mobile filters */}
-            <div className="flex md:hidden flex-wrap items-center gap-2">
-              {filters.map((item, i) => (
-                <motion.div
-                  key={item.value}
-                  variants={fadeUp}
-                  custom={i + 2}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Button
-                    variant={filter === item.value ? "outline" : "ghost"}
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between border-b border-border pb-5">
+            {/* Scrollable Filter Pills */}
+            <div className="flex items-center gap-1.5 overflow-x-auto pb-2 scrollbar-none -mx-2 px-2">
+              {filters.map((item) => {
+                const isActive = filter === item.value;
+                const count = getFilterCount(item.value);
+
+                return (
+                  <button
+                    key={item.value}
+                    type="button"
                     onClick={() => {
-                      setFilter(item.value as Project["type"] | "all");
+                      setFilter(item.value);
                       setLoadMore(false);
                     }}
-                    className="px-3! py-1! min-h-10 rounded-full! w-auto!"
+                    className={`
+                      relative inline-flex items-center gap-2 rounded-full px-4 py-2
+                      text-xs sm:text-sm font-semibold transition-colors duration-200 cursor-pointer whitespace-nowrap
+                      ${
+                        isActive
+                          ? "text-foreground bg-dusty/50"
+                          : "text-secondary hover:text-foreground hover:bg-black/5"
+                      }
+                    `}
                   >
-                    {item.label}
-                  </Button>
-                </motion.div>
-              ))}
+                    {/* Animated pill background indicator */}
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeWorkFilterPill"
+                        className="absolute inset-0 rounded-full bg-dark-slate shadow-sm"
+                        transition={{
+                          type: "spring",
+                          stiffness: 450,
+                          damping: 32,
+                        }}
+                      />
+                    )}
+                    <span className="relative z-10">{item.label}</span>
+                    <span
+                      className={`
+                        relative z-10 rounded-full px-1.5 py-0.5 text-[10px] font-bold transition-colors
+                        ${
+                          isActive
+                            ? "bg-white/25 text-foreground"
+                            : "bg-black/5 text-dusty"
+                        }
+                      `}
+                    >
+                      {count}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
 
-            {/* Desktop filters */}
-            <div className="hidden md:flex flex-wrap items-center gap-2">
-              {filters.map((item, i) => (
-                <motion.div key={item.value} variants={fadeUp} custom={i + 2}>
-                  <Button
-                    variant={filter === item.value ? "default" : "ghost"}
-                    onClick={() => {
-                      setFilter(item.value as Project["type"] | "all");
-                      setLoadMore(false);
-                    }}
-                    className="relative group transform transition-all duration-300 hover:scale-105"
-                  >
-                    {item.label}
-                    <span className="absolute left-0 -bottom-1 h-px w-0 bg-current transition-all duration-300 ease-out group-hover:w-full" />
-                  </Button>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* View All CTA */}
-            <motion.div variants={fadeUp} custom={6}>
+            {/* View All GitHub CTA */}
+            <div className="flex items-center justify-between sm:justify-end gap-3 pt-2 lg:pt-0 xl:border-none lg:border-l lg:pl-3">
+              <span className="text-xs text-dusty font-medium">
+                Showing {visibleProjects.length} of {filteredProjects.length}
+              </span>
               <Link
                 href="https://github.com/abhaytiwariii"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden md:inline-flex"
+                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-4 py-2 text-xs font-semibold text-foreground shadow-xs transition-all hover:border-black/30 hover:shadow-md"
               >
-                <Button
-                  variant="outline"
-                  className="text-black px-6! py-3! rounded-full!"
-                >
-                  View All Work <ArrowUpRight />
-                </Button>
+                <span>All Repositories</span>
+                <ArrowUpRight className="h-3.5 w-3.5" />
               </Link>
-            </motion.div>
+            </div>
           </div>
-          {/* Projects grid */}
+
+          {/* Projects Grid */}
           <div className="mt-8">
             <AnimatePresence mode="wait">
-              <motion.div
-                key={filter}
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.25 }}
-              >
-                <ProjectList projects={visibleProjects} />
-              </motion.div>
+              {visibleProjects.length > 0 ? (
+                <motion.div
+                  key={filter}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.25 }}
+                >
+                  <ProjectList projects={visibleProjects} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="empty"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="rounded-2xl border border-dashed border-border p-12 text-center"
+                >
+                  <p className="text-secondary text-sm">
+                    No projects found matching this filter.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setFilter("all")}
+                    className="mt-3 text-xs font-semibold text-black underline underline-offset-4 cursor-pointer"
+                  >
+                    Reset Filter
+                  </button>
+                </motion.div>
+              )}
             </AnimatePresence>
           </div>
+
           {/* Load More Button */}
           <AnimatePresence>
             {filteredProjects.length > 4 && !loadMore && (
@@ -165,11 +210,21 @@ export default function Work() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.25 }}
-                className="flex items-center justify-center my-10"
+                className="flex flex-col items-center justify-center gap-2 pt-6 pb-2"
               >
-                <Button variant="filled" onClick={() => setLoadMore(true)}>
-                  Load More
+                <Button
+                  variant="filled"
+                  onClick={() => setLoadMore(true)}
+                  className="rounded-full! px-8! py-3! text-sm!"
+                >
+                  <span>
+                    Load More Projects ({filteredProjects.length - 4} more)
+                  </span>
                 </Button>
+                <p className="text-xs text-dusty">
+                  Showing 4 of {filteredProjects.length} total projects in this
+                  category
+                </p>
               </motion.div>
             )}
           </AnimatePresence>

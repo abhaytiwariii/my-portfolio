@@ -25,11 +25,13 @@
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
 
   --color-secondary: var(--dusty-blue);
   --color-strong: var(--foreground-strong);
   --color-accent: var(--soft-silver);
   --color-surface: var(--white);
+  --color-surface-muted: var(--surface-muted);
 
   --color-dusty: var(--dusty-blue);
   --color-silver: var(--soft-silver);

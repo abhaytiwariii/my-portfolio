@@ -28,6 +28,7 @@ export type Project = {
     | "Academic"
     | "In Progress"
     | "Other";
+  company?: "hb-gadget" | "Labellift";
   myContribution?: string;
 };
 
@@ -50,6 +51,7 @@ const projects: Project[] = [
       "AI Attendance",
     ],
     type: "Professional",
+    company: "hb-gadget",
     myContribution:
       "Worked across the frontend and backend, owning features from database and API design through production delivery. Engineered real-time Stock In/Stock Out workflows using MongoDB aggregation pipelines across company, branch, and date dimensions, with automatic synchronization from Purchase Bills and Deliveries. Integrated a FastAPI face-recognition engine through a Node.js proxy for real-time attendance with geofencing, timestamping, and fallback enrollment. Integrated Shopify REST and GraphQL APIs for two-way synchronization of products, stock, orders, and fulfillment. Also contributed to employee payroll and leave workflows, GST-aware billing, vendor ledgers, shipping labels, and POS functionality.",
   },
@@ -69,6 +71,7 @@ const projects: Project[] = [
       "Music Distribution",
     ],
     type: "Professional",
+    company: "Labellift",
     myContribution:
       "Worked as a Full-Stack Developer Intern, developing production React components for suspension, royalty, and profile management workflows. Fixed critical data-integrity issues in artist and label APIs that were blocking features, and contributed production changes through a structured Git and pull-request workflow.",
   },
@@ -111,6 +114,7 @@ const projects: Project[] = [
       "Financial Tracking",
     ],
     type: "Professional",
+    company: "hb-gadget",
     myContribution:
       "Built repair order lifecycle management from customer intake through completion, including per-customer repair history, payment collection, and shop-level financial reporting.",
   },
@@ -151,6 +155,7 @@ const projects: Project[] = [
       "AI-Assisted Development",
     ],
     type: "Professional",
+    company: "hb-gadget",
     myContribution:
       "Independently designed and developed the website end-to-end using WordPress. Created and structured multiple pages, designed responsive layouts, implemented website sections, and used AI-assisted workflows for design ideation, content structuring, and development.",
   },
@@ -170,6 +175,7 @@ const projects: Project[] = [
       "AI-Assisted Development",
     ],
     type: "Professional",
+    company: "hb-gadget",
     myContribution:
       "Independently designed and developed the website end-to-end using WordPress. Created and structured multiple pages, implemented responsive layouts and website sections, and used AI-assisted workflows to accelerate design ideation, content structuring, and implementation.",
   },
@@ -189,6 +195,7 @@ const projects: Project[] = [
       "Liquid",
     ],
     type: "Professional",
+    company: "hb-gadget",
     myContribution:
       "Contributed to the Shopify website by creating custom sections for pages and fixing UI styling and layout issues. Worked on improving visual consistency, responsiveness, and the overall frontend experience across different parts of the website.",
   },
