@@ -24,8 +24,11 @@ export const experiences: ExperienceItem[] = [
     location: "Nagpur, Maharashtra, India",
     companyUrl: "https://hbgadget.in/",
     summary:
-      "Core full-stack engineer driving multi-tenant SaaS architecture, real-time inventory aggregation pipelines, AI-driven attendance systems, and multi-channel e-commerce integrations.",
+      "Core full-stack engineer driving enterprise multi-tenant SaaS & CRM architecture, omni-channel lead ingestion pipelines, real-time inventory aggregation, AI-driven attendance systems, and e-commerce integrations.",
     keyContributions: [
+      "Architected an enterprise multi-tenant Lead Management System (LMS - Leads by RocketSales) featuring a dual-database MongoDB connection pattern and a 5-tier hierarchical RBAC model (SuperAdmin to Salesman) with stateless JWT tenant scoping.",
+      "Engineered omni-channel webhook receivers and API integrations for Google Ads API, Meta Lead Ads (Facebook/Instagram), and LinkedIn Ads API with click ID tracking (gclId) and bulk Excel/CSV ingestion pipelines.",
+      "Built a visual drag-and-drop dynamic form builder with schema versioning and branch impact analysis, paired with a high-performance TanStack Table v8 lead pipeline and dynamic quotation PDF generator (jsPDF).",
       "Engineered real-time Stock In/Stock Out workflows using MongoDB aggregation pipelines across company, branch, and date dimensions with automatic synchronization from purchase bills and deliveries.",
       "Integrated a FastAPI face-recognition engine via Node.js proxy for real-time employee attendance featuring geofencing, timestamping, and fallback enrollment.",
       "Built automated Shopify REST and GraphQL synchronization pipelines for products, live inventory, orders, and fulfillment updates.",
@@ -34,16 +37,23 @@ export const experiences: ExperienceItem[] = [
     techStack: [
       "Next.js",
       "React",
+      "TypeScript",
       "Node.js",
-      "FastAPI",
+      "Express",
       "MongoDB",
-      "PostgreSQL",
+      "FastAPI",
+      "TanStack Table",
+      "TanStack Query",
       "Shopify API",
-      "Python",
+      "Google Ads API",
       "REST & GraphQL",
     ],
     projectsLinked: [
       { title: "RocketSales", link: "https://rocketsalestracker.com/" },
+      {
+        title: "Lead Management System (LMS)",
+        link: "https://lead.rocketsalestracker.com/",
+      },
       {
         title: "Repair Shop Management",
         link: "https://repair.rocketsalestracker.com/",

@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import ExperienceRow from "./Experience/ExperienceRow";
 import { experiences } from "./data/experience";
-import { Briefcase, Clock, Award } from "lucide-react";
+import { Clock, Award } from "lucide-react";
 
 export default function Experience() {
   const sectionRef = useRef(null);

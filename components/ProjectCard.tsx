@@ -72,27 +72,52 @@ export function ProjectCard({
           <div className="absolute left-3 top-3 z-10 flex flex-wrap items-center gap-1.5">
             {project.type && (
               <span
-                className="
-                  rounded-full border border-border/80
-                  bg-surface/90 backdrop-blur-md
-                  px-3 py-1 text-[11px] font-semibold
-                  text-foreground shadow-xs
-                "
+                className={`
+                  inline-flex items-center gap-1.5
+                  rounded-full border backdrop-blur-md
+                  px-3 py-1 text-[11px] font-semibold tracking-wide
+                  transition-all duration-200
+                  ${
+                    project.type === "Professional"
+                      ? "border-black/10 bg-white/95 text-slate-900 shadow-xs"
+                      : project.type === "In Progress"
+                      ? "border-amber-500/25 bg-white/95 text-amber-950 shadow-xs"
+                      : project.type === "Personal"
+                      ? "border-black/10 bg-white/95 text-slate-900 shadow-xs"
+                      : project.type === "Open Source"
+                      ? "border-purple-500/25 bg-white/95 text-purple-950 shadow-xs"
+                      : "border-black/10 bg-white/95 text-slate-800 shadow-xs"
+                  }
+                `}
               >
-                {project.type}
+                <span
+                  className={`h-1.5 w-1.5 shrink-0 rounded-full ${
+                    project.type === "Professional"
+                      ? "bg-emerald-500 shadow-[0_0_6px_rgba(16,185,129,0.55)]"
+                      : project.type === "In Progress"
+                      ? "bg-amber-500 animate-pulse shadow-[0_0_6px_rgba(245,158,11,0.55)]"
+                      : project.type === "Personal"
+                      ? "bg-blue-500 shadow-[0_0_6px_rgba(59,130,246,0.55)]"
+                      : project.type === "Open Source"
+                      ? "bg-purple-500 shadow-[0_0_6px_rgba(168,85,247,0.55)]"
+                      : "bg-slate-400"
+                  }`}
+                />
+                <span>{project.type}</span>
               </span>
             )}
             {project.company && (
               <span
                 className="
-                  inline-flex items-center gap-1
-                  rounded-full border border-dark-slate/20
-                  bg-dark-slate text-white
-                  px-2.5 py-1 text-[11px] font-medium shadow-xs
+                  inline-flex items-center gap-1.5
+                  rounded-full border border-white/20
+                  bg-neutral-900/90 text-white backdrop-blur-md
+                  px-2.5 py-1 text-[11px] font-medium tracking-wide shadow-xs
+                  transition-all duration-200
                 "
               >
-                <Building2 className="h-3 w-3" />
-                {companyLabels[project.company] || project.company}
+                <Building2 className="h-3 w-3 text-white/80" />
+                <span>{companyLabels[project.company] || project.company}</span>
               </span>
             )}
           </div>
@@ -198,7 +223,7 @@ export function ProjectCard({
                       <p className="font-semibold text-foreground-strong mb-1">
                         What I Built & Engineered:
                       </p>
-                      <p className="text-secondary leading-relaxed">
+                      <p className="text-secondary leading-relaxed whitespace-pre-line">
                         {project.myContribution}
                       </p>
                     </div>

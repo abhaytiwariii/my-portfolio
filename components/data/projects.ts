@@ -1,4 +1,5 @@
 import rocketsalesImage from "@/public/rocketsales.png";
+import leadManagementImage from "@/public/Lead-management-system.png";
 import labelliftImage from "@/public/Labellift.png";
 import athleticaImage from "@/public/athletica.png";
 import kordeImage from "@/public/korde.png";
@@ -58,6 +59,30 @@ const projects: Project[] = [
 
   {
     id: 2,
+    img: leadManagementImage,
+    title: "Leads by RocketSales — Lead Management System",
+    description:
+      "An enterprise-grade, multi-tenant Lead Management System (LMS) and CRM automating the complete lead lifecycle: multi-channel ad ingestion (Meta, Google Ads, LinkedIn Ads), dynamic form intake, hierarchical team assignments, appointment scheduling, and automated quotation generation.",
+    link: "https://lead.rocketsalestracker.com/",
+    tags: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "TanStack Table",
+      "Multi-Tenant",
+      "Ad Integrations",
+    ],
+    type: "Professional",
+    company: "hb-gadget",
+    myContribution:
+      "Architected an enterprise multi-tenant Lead Management System featuring a dual-database MongoDB architecture separating organizational hierarchy from operational CRM data. Designed a 5-tier hierarchical RBAC system (SuperAdmin → Company → Branch → Supervisor → Salesman) with stateless JWT authentication and tenant scoping to ensure zero cross-tenant data leakage. Built omni-channel webhook integrations with Google Ads API, Meta Graph API (Facebook/Instagram Lead Ads), and LinkedIn Ads API with click ID tracking (gclId) and bulk CSV/Excel batch ingestion. Developed a drag-and-drop dynamic form builder engine with schema versioning and branch-level impact analysis. Implemented a high-performance TanStack Table v8 pipeline with multi-column filtering and server-side pagination, appointment scheduler, dynamic quotation engine with jsPDF export, and real-time conversion analytics dashboards.",
+  },
+
+  {
+    id: 3,
     img: labelliftImage,
     title: "LabelLift — Music Distribution Platform",
     description:
@@ -77,7 +102,7 @@ const projects: Project[] = [
   },
 
   {
-    id: 3,
+    id: 4,
     img: taskManagementImage,
     title: "Task Management System",
     description:
@@ -99,7 +124,7 @@ const projects: Project[] = [
   },
 
   {
-    id: 4,
+    id: 5,
     img: repairshopImage,
     title: "Repair Shop Management",
     description:
@@ -120,7 +145,7 @@ const projects: Project[] = [
   },
 
   {
-    id: 5,
+    id: 6,
     img: stockMarketAnalyzerImage,
     title: "Stock Market Analyzer",
     description:
@@ -141,7 +166,7 @@ const projects: Project[] = [
   },
 
   {
-    id: 6,
+    id: 7,
     img: parentsEyeImage,
     title: "Parents Eye",
     description:
@@ -161,7 +186,7 @@ const projects: Project[] = [
   },
 
   {
-    id: 7,
+    id: 8,
     img: kordeImage,
     title: "Kord Enviro",
     description:
@@ -181,7 +206,7 @@ const projects: Project[] = [
   },
 
   {
-    id: 8,
+    id: 9,
     img: athleticaImage,
     title: "Athletica — Shopify Website",
     description:
@@ -201,7 +226,7 @@ const projects: Project[] = [
   },
 
   {
-    id: 9,
+    id: 10,
     img: nccImage,
     title: "NCC Cadet Hub",
     description:
@@ -215,7 +240,7 @@ const projects: Project[] = [
   },
 
   {
-    id: 10,
+    id: 11,
     img: therapistMayaImage,
     title: "Therapist Maya",
     description:
@@ -229,7 +254,7 @@ const projects: Project[] = [
   },
 
   {
-    id: 11,
+    id: 12,
     img: welcomeImage,
     title: "Itzfizz Scroll-Driven Hero Section",
     description:

@@ -3,7 +3,7 @@ import Work from "@/components/Work";
 import Experience from "@/components/Experience";
 import Skills from "@/components/Skills";
 import Services from "@/components/Services";
-import Footer from "@/components/Contact";
+import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
@@ -11,9 +11,9 @@ export default function Home() {
       <HeroSection />
       <Work />
       <Experience />
-      {/*<Skills />
-      <Services />
-      <Footer /> */}
+      {/* <Skills />
+      <Services /> */}
+      <Contact />
     </div>
   );
 }
