@@ -65,7 +65,7 @@ export default function Contact() {
       <div className="mx-auto w-full max-w-5xl px-6 md:px-8 lg:px-10 flex flex-col items-center text-center">
         {/* Header / Watermark matching Work & Experience sections */}
         <motion.div
-          className="relative h-24 sm:h-32 md:h-36 mb-6 md:mb-10 flex items-center justify-center w-full"
+          className="relative h-24 sm:h-32 md:h-36 mb-6 md:mb-15 flex items-center justify-center w-full"
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={fadeUp}
@@ -74,7 +74,7 @@ export default function Contact() {
           <span className="absolute inset-0 flex items-center justify-center text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold text-dusty/10 font-archivo tracking-widest select-none pointer-events-none">
             CONTACT
           </span>
-          <h2 className="relative z-10 text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-wide font-medium text-black">
+          <h2 className="relative top-5 md:top-10 z-10 text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-wide font-medium text-black">
             /CONTACT
           </h2>
         </motion.div>
