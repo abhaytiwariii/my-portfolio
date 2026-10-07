@@ -130,7 +130,8 @@ export default function Contact() {
         >
           <Button
             variant="filled"
-            href="mailto:at1384424@gmail.com"
+            target="_blank"
+            href="https://www.linkedin.com/in/abhaytiwariii/"
             className="w-full xs:w-auto px-7 py-3 text-sm sm:text-base rounded-full shadow-sm hover:shadow-md transition-all gap-2"
           >
             <Mail className="w-4 h-4" />
@@ -146,7 +147,9 @@ export default function Contact() {
             {copied ? (
               <>
                 <Check className="w-4 h-4 text-emerald-600" />
-                <span className="text-emerald-700 font-semibold">Email Copied!</span>
+                <span className="text-emerald-700 font-semibold">
+                  Email Copied!
+                </span>
               </>
             ) : (
               <>
