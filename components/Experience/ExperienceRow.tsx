@@ -44,21 +44,21 @@ export default function ExperienceRow({ item, index }: ExperienceRowProps) {
         <div className="flex-1 space-y-2">
           {/* Company & Badges */}
           <div className="flex flex-wrap items-center gap-3">
-            {item.companyUrl ? (
-              <Link
-                href={item.companyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group/link inline-flex items-center gap-1.5 text-xl sm:text-2xl font-bold tracking-tight text-white hover:text-dusty transition-colors"
-              >
-                <span>{item.company}</span>
-                <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 opacity-70 group-hover/link:opacity-100" />
-              </Link>
-            ) : (
-              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
-                {item.company}
-              </h3>
-            )}
+            <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
+              {item.companyUrl ? (
+                <Link
+                  href={item.companyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/link inline-flex items-center gap-1.5 hover:text-dusty transition-colors"
+                >
+                  <span>{item.company}</span>
+                  <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 opacity-70 group-hover/link:opacity-100" />
+                </Link>
+              ) : (
+                item.company
+              )}
+            </h3>
 
             {/* Work Type Pill */}
             <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-xs font-medium text-surface-muted/90">

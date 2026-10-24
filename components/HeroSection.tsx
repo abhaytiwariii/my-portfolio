@@ -73,7 +73,10 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative max-h-225 md:max-h-175 lg:max-h-185 overflow-hidden bg-surface md:h-screen md:flex md:items-end md:justify-center">
+    <section
+      id="home"
+      className="relative max-h-225 md:max-h-175 lg:max-h-185 overflow-hidden bg-surface md:h-screen md:flex md:items-end md:justify-center"
+    >
       {/* BACKGROUND HEADER / NAME TEXT */}
       <div className="absolute z-0 top-4 lg:top-10 w-full flex justify-center">
         <motion.h1
@@ -117,7 +120,7 @@ export default function HeroSection() {
           width={457}
           height={750}
           src="/Abhay-Tiwari-Portfolio.webp"
-          alt="Abhay Tiwari Portfolio"
+          alt="Portrait of Abhay Tiwari, Full Stack Developer"
           className="w-full h-auto object-contain"
           priority
         />
@@ -142,8 +145,9 @@ export default function HeroSection() {
           width={457}
           height={750}
           src="/Abhay-Tiwari-Portfolio.webp"
-          alt="Abhay Tiwari Portfolio"
+          alt="Portrait of Abhay Tiwari, Full Stack Developer (Grayscale base)"
           className="w-full h-auto grayscale-80"
+          priority
         />
 
         {/* Top layer: Masked Dynamic Color */}
@@ -151,7 +155,8 @@ export default function HeroSection() {
           width={457}
           height={750}
           src="/Abhay-Tiwari-Portfolio.webp"
-          alt="Abhay Tiwari"
+          alt="Portrait of Abhay Tiwari, Full Stack Developer (Interactive color hover effect)"
+          aria-hidden="true"
           className="w-full h-auto absolute inset-0 transition-opacity duration-300 ease-out pointer-events-none"
           style={{
             WebkitMaskImage: isHovered
@@ -216,9 +221,9 @@ export default function HeroSection() {
           }}
           className="flex flex-col gap-4 lg:gap-5 w-full max-w-md md:max-w-70 lg:max-w-90 xl:max-w-md text-center md:text-left pointer-events-auto"
         >
-          <div className="md:text-2xl lg:text-3xl xl:text-4xl sm:text-3xl text-2xl font-semibold text-black">
+          <h2 className="md:text-2xl lg:text-3xl xl:text-4xl sm:text-3xl text-2xl font-semibold text-black">
             Full Stack Developer
-          </div>
+          </h2>
           <div className="text-gray-600 text-base md:text-xs lg:text-sm xl:text-lg leading-7 md:leading-5 lg:leading-6 xl:leading-8 max-w-lg">
             Full-Stack Web Developer with 10+ months of experience building
             scalable applications using Next.js and FastAPI.

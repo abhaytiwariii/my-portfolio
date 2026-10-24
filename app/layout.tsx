@@ -49,6 +49,10 @@ export const metadata: Metadata = {
 
   metadataBase: new URL("https://abhaytiwari.vercel.app"),
 
+  alternates: {
+    canonical: "/",
+  },
+
   verification: {
     google: "1zTpiuHTBkFcm3AQEf-KHJ9OB4jbTpvdPS7eAr3ckn4",
   },
