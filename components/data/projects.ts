@@ -29,13 +29,37 @@ export type Project = {
     | "Academic"
     | "In Progress"
     | "Other";
-  company?: "hb-gadget" | "Labellift";
+  company?: "hb-gadget" | "Labellift" | "ICAD";
   myContribution?: string;
 };
 
 const projects: Project[] = [
+  // 1. ICAD Official Website
   {
     id: 1,
+    img: "/icad-website.webp",
+    title: "ICAD — Official Website",
+    description:
+      "A modern website for ICAD School of Learning, designed to showcase its educational programs, courses, learning centres, and institutional information.",
+    link: "https://icad-education.vercel.app/",
+    tags: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Responsive Design",
+      "SEO",
+      "UI/UX",
+    ],
+    type: "Professional",
+    company: "ICAD",
+    myContribution:
+      "Working as the sole developer, responsible for designing and developing the website from scratch. Handling frontend architecture, responsive UI implementation, content integration, SEO optimization, deployment, and testing. Currently deployed for testing.",
+  },
+
+  // 2. RocketSales
+  {
+    id: 2,
     img: rocketsalesImage,
     title: "RocketSales — Sales & Inventory Platform",
     description:
@@ -57,8 +81,9 @@ const projects: Project[] = [
       "Worked across the frontend and backend, owning features from database and API design through production delivery. Engineered real-time Stock In/Stock Out workflows using MongoDB aggregation pipelines across company, branch, and date dimensions, with automatic synchronization from Purchase Bills and Deliveries. Integrated a FastAPI face-recognition engine through a Node.js proxy for real-time attendance with geofencing, timestamping, and fallback enrollment. Integrated Shopify REST and GraphQL APIs for two-way synchronization of products, stock, orders, and fulfillment. Also contributed to employee payroll and leave workflows, GST-aware billing, vendor ledgers, shipping labels, and POS functionality.",
   },
 
+  // 3. Leads by RocketSales
   {
-    id: 2,
+    id: 3,
     img: leadManagementImage,
     title: "Leads by RocketSales — Lead Management System",
     description:
@@ -81,8 +106,9 @@ const projects: Project[] = [
       "Architected an enterprise multi-tenant Lead Management System featuring a dual-database MongoDB architecture separating organizational hierarchy from operational CRM data. Designed a 5-tier hierarchical RBAC system (SuperAdmin → Company → Branch → Supervisor → Salesman) with stateless JWT authentication and tenant scoping to ensure zero cross-tenant data leakage. Built omni-channel webhook integrations with Google Ads API, Meta Graph API (Facebook/Instagram Lead Ads), and LinkedIn Ads API with click ID tracking (gclId) and bulk CSV/Excel batch ingestion. Developed a drag-and-drop dynamic form builder engine with schema versioning and branch-level impact analysis. Implemented a high-performance TanStack Table v8 pipeline with multi-column filtering and server-side pagination, appointment scheduler, dynamic quotation engine with jsPDF export, and real-time conversion analytics dashboards.",
   },
 
+  // 4. LabelLift
   {
-    id: 3,
+    id: 4,
     img: labelliftImage,
     title: "LabelLift — Music Distribution Platform",
     description:
@@ -101,8 +127,32 @@ const projects: Project[] = [
       "Worked as a Full-Stack Developer Intern, developing production React components for suspension, royalty, and profile management workflows. Fixed critical data-integrity issues in artist and label APIs that were blocking features, and contributed production changes through a structured Git and pull-request workflow.",
   },
 
+  // 5. ICAD CPA Registration
   {
-    id: 4,
+    id: 5,
+    img: "/icad-cpa.webp",
+    title: "ICAD — CPA Registration Landing Page",
+    description:
+      "A registration platform for ICAD's Competitive Potential Assessment (CPA), enabling students to register for assessments and complete online payments.",
+    link: "https://register.icad.org.in/cpa",
+    tags: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Google Sheets API",
+      "ERP Integration",
+      "HDFC Payment Gateway",
+    ],
+    type: "Professional",
+    company: "ICAD",
+    myContribution:
+      "Designed, developed, and deployed the CPA registration landing page within 5 days. Integrated registration data with Google Sheets and ICAD's ERP system, and implemented HDFC Bank payment gateway integration to support online registration payments.",
+  },
+
+  // 6. Task Management System
+  {
+    id: 6,
     img: taskManagementImage,
     title: "Task Management System",
     description:
@@ -123,8 +173,9 @@ const projects: Project[] = [
       "Built the application end-to-end using Next.js, TypeScript, NestJS, Prisma, and PostgreSQL. Implemented drag-and-drop task status transitions, optimistic UI updates with automatic rollback on failure, DTO validation, relational database design, and hybrid Google OAuth and guest authentication.",
   },
 
+  // 7. Repair Shop Management
   {
-    id: 5,
+    id: 7,
     img: repairshopImage,
     title: "Repair Shop Management",
     description:
@@ -144,8 +195,9 @@ const projects: Project[] = [
       "Built repair order lifecycle management from customer intake through completion, including per-customer repair history, payment collection, and shop-level financial reporting.",
   },
 
+  // 8. Stock Market Analyzer
   {
-    id: 6,
+    id: 8,
     img: stockMarketAnalyzerImage,
     title: "Stock Market Analyzer",
     description:
@@ -165,8 +217,9 @@ const projects: Project[] = [
       "Developed the frontend using Next.js and TypeScript and built the FastAPI/Python backend for processing historical market data through RESTful APIs. Implemented timeframe filtering and interactive chart-based trend visualization.",
   },
 
+  // 9. Parents Eye
   {
-    id: 7,
+    id: 9,
     img: parentsEyeImage,
     title: "Parents Eye",
     description:
@@ -185,8 +238,9 @@ const projects: Project[] = [
       "Independently designed and developed the website end-to-end using WordPress. Created and structured multiple pages, designed responsive layouts, implemented website sections, and used AI-assisted workflows for design ideation, content structuring, and development.",
   },
 
+  // 10. Kord Enviro
   {
-    id: 8,
+    id: 10,
     img: kordeImage,
     title: "Kord Enviro",
     description:
@@ -205,8 +259,9 @@ const projects: Project[] = [
       "Independently designed and developed the website end-to-end using WordPress. Created and structured multiple pages, implemented responsive layouts and website sections, and used AI-assisted workflows to accelerate design ideation, content structuring, and implementation.",
   },
 
+  // 11. Athletica
   {
-    id: 9,
+    id: 11,
     img: athleticaImage,
     title: "Athletica — Shopify Website",
     description:
@@ -225,8 +280,9 @@ const projects: Project[] = [
       "Contributed to the Shopify website by creating custom sections for pages and fixing UI styling and layout issues. Worked on improving visual consistency, responsiveness, and the overall frontend experience across different parts of the website.",
   },
 
+  // 12. NCC Cadet Hub
   {
-    id: 10,
+    id: 12,
     img: nccImage,
     title: "NCC Cadet Hub",
     description:
@@ -239,8 +295,9 @@ const projects: Project[] = [
       "Developed the role-based platform for managing cadet rosters, parade attendance, nominal roll generation, and bilingual academic mock tests using Next.js, Supabase, and Tailwind CSS.",
   },
 
+  // 13. Therapist Maya
   {
-    id: 11,
+    id: 13,
     img: therapistMayaImage,
     title: "Therapist Maya",
     description:
@@ -253,8 +310,9 @@ const projects: Project[] = [
       "Designed and developed the responsive website with a focus on accessibility, usability, responsive layouts, and a clean modern interface.",
   },
 
+  // 14. Itzfizz
   {
-    id: 12,
+    id: 14,
     img: welcomeImage,
     title: "Itzfizz Scroll-Driven Hero Section",
     description:

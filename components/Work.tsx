@@ -22,7 +22,7 @@ const fadeUp: Variants = {
   }),
 };
 
-type FilterValue = Project["type"] | Project["company"] | "all";
+type FilterValue = Project["type"] | "all";
 
 export default function Work() {
   const [filter, setFilter] = useState<FilterValue>("all");
@@ -34,9 +34,7 @@ export default function Work() {
   const filteredProjects =
     filter === "all"
       ? projects
-      : projects.filter(
-          (project) => project.type === filter || project.company === filter,
-        );
+      : projects.filter((project) => project.type === filter);
 
   const visibleProjects = loadMore
     ? filteredProjects
@@ -47,13 +45,11 @@ export default function Work() {
     { label: "Professional", value: "Professional" },
     { label: "Personal", value: "Personal" },
     { label: "In Progress", value: "In Progress" },
-    { label: "HB Gadget Technology", value: "hb-gadget" },
-    { label: "LabelLift", value: "Labellift" },
   ];
 
   const getFilterCount = (val: FilterValue) => {
     if (val === "all") return projects.length;
-    return projects.filter((p) => p.type === val || p.company === val).length;
+    return projects.filter((p) => p.type === val).length;
   };
 
   return (
