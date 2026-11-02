@@ -34,6 +34,7 @@ export function ProjectCard({
   const companyLabels: Record<string, string> = {
     "hb-gadget": "HB Gadget Tech",
     Labellift: "LabelLift",
+    ICAD: "ICAD Technologies",
   };
 
   return (

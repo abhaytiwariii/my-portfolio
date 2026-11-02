@@ -63,13 +63,13 @@ export default function Experience() {
             >
               <span className="flex items-center gap-1.5 text-dusty">
                 <Clock className="h-4 w-4 text-emerald-400" />
-                <span className="font-semibold text-white">10+ Months</span>
+                <span className="font-semibold text-white">1+ Years</span>
                 <span>Production Exp</span>
               </span>
               <span className="h-3 w-px bg-white/20" />
               <span className="flex items-center gap-1.5 text-dusty">
                 <Award className="h-4 w-4 text-dusty" />
-                <span className="font-semibold text-white">2</span>
+                <span className="font-semibold text-white">3</span>
                 <span>Companies</span>
               </span>
             </motion.div>
@@ -84,13 +84,13 @@ export default function Experience() {
         >
           <span className="flex items-center gap-1.5 text-dusty">
             <Clock className="h-4 w-4 text-emerald-400" />
-            <span className="font-semibold text-white">10+ Months</span>
+            <span className="font-semibold text-white">1+ Years</span>
             <span>Production Exp</span>
           </span>
           <span className="h-3 w-px bg-white/20" />
           <span className="flex items-center gap-1.5 text-dusty">
             <Award className="h-4 w-4 text-dusty" />
-            <span className="font-semibold text-white">2</span>
+            <span className="font-semibold text-white">3</span>
             <span>Companies</span>
           </span>
         </motion.div>

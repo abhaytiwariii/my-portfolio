@@ -225,7 +225,7 @@ export default function HeroSection() {
             Full Stack Developer
           </h2>
           <div className="text-gray-600 text-base md:text-xs lg:text-sm xl:text-lg leading-7 md:leading-5 lg:leading-6 xl:leading-8 max-w-lg">
-            Full-Stack Web Developer with 10+ months of experience building
+            Full-Stack Web Developer with 1+ years of experience building
             scalable applications using Next.js and FastAPI.
           </div>
           <div>

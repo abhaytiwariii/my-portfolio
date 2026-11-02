@@ -36,14 +36,14 @@ const NAV_ITEMS: NavItemType[] = [
   {
     href: "#experience",
     label: "Experience",
-    description: "[10m+]",
+    description: "[1yr+]",
     icon: <UserRound size={18} />,
     delayClass: "delay-100",
   },
   {
     href: "https://github.com/abhaytiwariii/",
     label: "Skills",
-    description: "[10+]",
+    description: "[15+]",
     icon: <CodeXml size={18} />,
     delayClass: "delay-150",
   },
@@ -67,6 +67,8 @@ function NavItem({
   return (
     <Link
       href={href}
+      target={href.startsWith("http") ? "_blank" : undefined}
+      rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
       className={`group relative flex flex-nowrap items-center justify-between sm:justify-start md:justify-center w-full md:w-auto gap-2 cursor-pointer tracking-tight font-medium transform transition-all duration-300 ${
         isMobileView
           ? isDropdownOpen

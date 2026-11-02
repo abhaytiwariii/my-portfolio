@@ -64,6 +64,13 @@ export default function ExperienceRow({ item, index }: ExperienceRowProps) {
             <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-xs font-medium text-surface-muted/90">
               {item.workType}
             </span>
+
+            {item.isCurrent && (
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 text-xs font-medium text-emerald-400">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                Present
+              </span>
+            )}
           </div>
 
           {/* Role */}
