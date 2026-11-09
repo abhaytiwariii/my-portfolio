@@ -41,7 +41,7 @@ const projects: Project[] = [
     title: "ICAD — Official Website",
     description:
       "A modern website for ICAD School of Learning, designed to showcase its educational programs, courses, learning centres, and institutional information.",
-    link: "https://icad-education.vercel.app/",
+    link: "https://icad.org.in/",
     tags: [
       "Next.js",
       "React",
@@ -49,12 +49,15 @@ const projects: Project[] = [
       "Tailwind CSS",
       "Responsive Design",
       "SEO",
-      "UI/UX",
+      "ERP Integration",
+      "HDFC Bank API",
+      "Hostinger",
+      "Nginx",
     ],
     type: "Professional",
     company: "ICAD",
     myContribution:
-      "Working as the sole developer, responsible for designing and developing the website from scratch. Handling frontend architecture, responsive UI implementation, content integration, SEO optimization, deployment, and testing. Currently deployed for testing.",
+      "Built and deployed ICAD's new website using Next.js, TypeScript, and Tailwind CSS as the sole developer. Integrated Google Sheets and ICAD's ERP system, integrated HDFC Bank payment gateway API, optimized SEO, responsive design, and performance, and managed production deployment using Hostinger, Nginx, and GitHub.",
   },
 
   // 2. RocketSales
@@ -147,7 +150,7 @@ const projects: Project[] = [
     type: "Professional",
     company: "ICAD",
     myContribution:
-      "Designed, developed, and deployed the CPA registration landing page within 5 days. Integrated registration data with Google Sheets and ICAD's ERP system, and implemented HDFC Bank payment gateway integration to support online registration payments.",
+      "Built and deployed the CPA registration landing page in 5 days, implementing the registration flow, responsive UI, Google Sheets and ICAD ERP integration, HDFC Bank payment gateway API, and production deployment.",
   },
 
   // 6. Task Management System
